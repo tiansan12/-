@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>721宿舍 - 我们的青春故事</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .slideshow-container {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .slide-content h1 {
+            font-size: 4rem;
+            font-family: "楷体", cursive;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide-content p {
+            font-size: 1.5rem;
+            font-family: "微软雅黑", sans-serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .roommates {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            background-color: #fff;
+        }
+
+        .card {
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #ffd7b5;
+        }
+
+        #quote {
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 1024px) {
+            .roommates {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .slide-content h1 {
+                font-size: 3rem;
+            }
+
+            .slide-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .slideshow-container {
+                height: 50vh;
+            }
+
+            .slide {
+                background-size: contain;
+                background-color: #000;
+            }
+
+            .roommates {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .slide-content h1 {
+                font-size: 2rem;
+            }
+
+            .slide-content p {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            .avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            .footer {
+                padding: 1rem;
+            }
+
+            .footer h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .slideshow-container {
+                height: 40vh;
+            }
+
+            .slide-content h1 {
+                font-size: 1.5rem;
+            }
+
+            .slide-content p {
+                font-size: 0.8rem;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <div class="slide active">
+            <div class="slide-content">
+                <h1>721宿舍</h1>
+                <p>愿下辈子有上床下桌</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h1>我们的日常</h1>
+                <p>记录每一个精彩瞬间</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h1>青春印记</h1>
+                <p>留下最美好的回忆</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="roommates">
+        <div class="card">
+            <img src="/imgs/地沟老鼠.jpg" alt="地沟老鼠" class="avatar">
+            <h3>李雨涵</h3>
+            <p>爱好：当地沟老鼠</p>
+            <p>她最喜欢当老鼠，因为可以到处乱窜，还可以吃东西。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/铁T.jpg" alt="铁T" class="avatar">
+            <h3>马嘉祺</h3>
+            <p>爱好：当铁T</p>
+            <p>她最喜欢当铁T。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/吉翔.jpg" alt="吉祥" class="avatar">
+            <h3>吉祥</h3>
+            <p>爱好：唱女高音</p>
+            <p>随时随地开唱。</p>
+        </div>
+        <div class="card">
+            <img src="/imgs/京圈阔少.jpg" alt="张雨萌" class="avatar">
+            <h3>张雨萌</h3>
+            <p>爱好：开黑卡</p>
+            <p>即将去迪拜旅游的小姐姐。</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h2>721宿舍 —— 我们八个人的家</h2>
+        <p id="quote"></p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideImages = [
+            '/imgs/77cbe9b552e002a0a46c710352d6f9b.jpg',
+            '/imgs/66dc5d6b8416d1bc24c226f2495d2c6.jpg',
+            '/imgs/e10ead06ebc5f4251daab52954bf1c8.jpg'
+        ];
+
+        // 设置初始背景图片
+        slides.forEach((slide, index) => {
+            slide.style.backgroundImage = `url(${slideImages[index]})`;
+        });
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // 每4秒切换一次图片
+        setInterval(nextSlide, 4000);
+
+        // 随机语录
+        const quotes = [        
+            "谁又偷吃我的零食了？",
+        ];
+
+        function updateQuote() {
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('quote').textContent = quote;
+        }
+
+        updateQuote();
+    </script>
+</body>
+</html>
